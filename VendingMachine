@@ -1,0 +1,33 @@
+public class VendingMachine{
+    public static void main(String[] args) {
+        Scanner string = new Scanner(System.in);
+
+        System.out.println("Enter the code for the item you want: ");
+        System.out.println("A1. Soda");
+        System.out.println("B2- Chips");
+        System.out.println("C3- Candy");
+        System.out.println("D4- Water");
+
+        String choice = string.nextLine();
+        switch (choice) {
+            case "A1":
+                System.out.println("Your total will be $1.50 ");
+                break;
+
+            case "B2":
+                System.out.println("Your total will be $1.25 ");
+                break;
+
+            case "C3":
+                System.out.println("Your total will be $0.75 ");
+                break;
+
+            case "D4":
+                System.out.println("Your total will be $1.00 ");
+                break;
+
+            default:
+                System.out.println("Error ");
+        }
+        }
+    }
