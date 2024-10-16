@@ -1,0 +1,50 @@
+import java.util.Scanner;
+
+public class QuizzGame {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Choose a category: ");
+        System.out.println("1 Science ");
+        System.out.println("2 History ");
+        System.out.println("3 Sports ");
+        byte category = scanner.nextByte();
+        String answer;
+
+        switch (category) {
+            case 1:
+                System.out.println("Which planet do we live on?");
+                answer= scanner.next();
+if (answer.equals("Earth")){
+                System.out.println("Correct! You earned 1 point.");
+            }
+else {
+     System.out.println("Wrong!");
+            }
+                break;
+
+            case 2:
+                System.out.println("When is Bulgaria created ");
+                  answer= scanner.next();
+if (answer.equals("681")){
+                System.out.println("Correct! You earned 1 point.");
+            }
+else {
+     System.out.println("Wrong!");
+            }
+                break;
+
+            case 3:
+                 System.out.println("Which number does the player that has scored the most goals in football, wear? ");
+                  answer= scanner.next();
+if (answer.equals("7")) {
+                System.out.println("Correct! You earned 1 point.");
+            }
+else {
+     System.out.println("Wrong!");
+            }
+                break;
+
+        }
+        }
+    }
