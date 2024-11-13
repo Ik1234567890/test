@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Calc{
+public class Calculator1{
     public static void main(String[] args){
         JFrame frame= new JFrame("My app");
         JLabel label = new JLabel ("0");
