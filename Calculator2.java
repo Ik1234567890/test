@@ -6,19 +6,16 @@ import java.awt.event.ActionListener;
 public class Calculator2{
     public static void main(String[] args){
 
-        // frame
         JFrame frame = new JFrame("My Calculator");
         frame.setSize(500,500);
         frame.setLayout(new GridLayout(3,1));
 
-        // panel for textboxes
         JPanel textPanel = new JPanel(new FlowLayout());
         JTextField textbox1 = new JTextField(8);
         JTextField textbox2 = new JTextField(8);
         textPanel.add(textbox1);
         textPanel.add(textbox2);
 
-        // panel for buttons
         JPanel buttons = new JPanel(new FlowLayout());
 
         JButton plus = new JButton("+");
