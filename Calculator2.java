@@ -33,7 +33,6 @@ public class Calculator2{
         buttons.add(multiply);
         buttons.add(divide);
 
-        // panel for result
         JPanel result = new JPanel(new FlowLayout());
         JLabel label = new JLabel("Result");
         result.add(label);
