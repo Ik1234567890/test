@@ -10,7 +10,7 @@ public class GuessingGameUI {
         int num = rn.nextInt(100) + 1;
 
         JFrame frame = new JFrame("Guessing Game");
-        frame.setSize(500, 500);
+        frame.setSize(1000, 1000);
         frame.setLayout(new GridLayout(4, 1));
 
         JPanel textPanel = new JPanel(new FlowLayout());
