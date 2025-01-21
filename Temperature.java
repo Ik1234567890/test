@@ -1,12 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class Temperature extends JFrame {
 
-    private JTextField inputField;
-    private JLabel resultLabel;
+    private JTextField inputField; // Input field for temperature
+    private JLabel resultLabel;   // Label to display the conversion result
 
     public Temperature() {
         // Set up the JFrame
@@ -47,122 +45,91 @@ public class Temperature extends JFrame {
         add(resultPanel);
 
         // Add event listeners to buttons
-        cToFButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                convertCelsiusToFahrenheit();
-            }
-        });
-
-        fToCButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                convertFahrenheitToCelsius();
-            }
-        });
-
-        cToKButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                convertCelsiusToKelvin();
-            }
-        });
-
-        fToKButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                convertFahrenheitToKelvin();
-            }
-        });
-
-        kToCButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                convertKelvinToCelsius();
-            }
-        });
-
-        kToFButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                convertKelvinToFahrenheit();
-            }
-        });
+        cToFButton.addActionListener(e -> convertCelsiusToFahrenheit());
+        fToCButton.addActionListener(e -> convertFahrenheitToCelsius());
+        cToKButton.addActionListener(e -> convertCelsiusToKelvin());
+        fToKButton.addActionListener(e -> convertFahrenheitToKelvin());
+        kToCButton.addActionListener(e -> convertKelvinToCelsius());
+        kToFButton.addActionListener(e -> convertKelvinToFahrenheit());
 
         // Make JFrame visible
         setVisible(true);
     }
 
+    // Conversion methods
     private void convertCelsiusToFahrenheit() {
-        String input = inputField.getText();
+        String input = inputField.getText().trim();
         if (isValidNumber(input)) {
             double celsius = Double.parseDouble(input);
             double fahrenheit = (celsius * 9 / 5) + 32;
             resultLabel.setText("Result: " + fahrenheit + " °F");
         } else {
-            resultLabel.setText("Invalid Input!");
+            resultLabel.setText("Invalid Input! Please enter a valid number.");
         }
     }
 
     private void convertFahrenheitToCelsius() {
-        String input = inputField.getText();
+        String input = inputField.getText().trim();
         if (isValidNumber(input)) {
             double fahrenheit = Double.parseDouble(input);
             double celsius = (fahrenheit - 32) * 5 / 9;
             resultLabel.setText("Result: " + celsius + " °C");
         } else {
-            resultLabel.setText("Invalid Input!");
+            resultLabel.setText("Invalid Input! Please enter a valid number.");
         }
     }
 
     private void convertCelsiusToKelvin() {
-        String input = inputField.getText();
+        String input = inputField.getText().trim();
         if (isValidNumber(input)) {
             double celsius = Double.parseDouble(input);
             double kelvin = celsius + 273.15;
             resultLabel.setText("Result: " + kelvin + " K");
         } else {
-            resultLabel.setText("Invalid Input!");
+            resultLabel.setText("Invalid Input! Please enter a valid number.");
         }
     }
 
     private void convertFahrenheitToKelvin() {
-        String input = inputField.getText();
+        String input = inputField.getText().trim();
         if (isValidNumber(input)) {
             double fahrenheit = Double.parseDouble(input);
             double kelvin = (fahrenheit - 32) * 5 / 9 + 273.15;
             resultLabel.setText("Result: " + kelvin + " K");
         } else {
-            resultLabel.setText("Invalid Input!");
+            resultLabel.setText("Invalid Input! Please enter a valid number.");
         }
     }
 
     private void convertKelvinToCelsius() {
-        String input = inputField.getText();
+        String input = inputField.getText().trim();
         if (isValidNumber(input)) {
             double kelvin = Double.parseDouble(input);
             double celsius = kelvin - 273.15;
             resultLabel.setText("Result: " + celsius + " °C");
         } else {
-            resultLabel.setText("Invalid Input!");
+            resultLabel.setText("Invalid Input! Please enter a valid number.");
         }
     }
 
     private void convertKelvinToFahrenheit() {
-        String input = inputField.getText();
+        String input = inputField.getText().trim();
         if (isValidNumber(input)) {
             double kelvin = Double.parseDouble(input);
             double fahrenheit = (kelvin - 273.15) * 9 / 5 + 32;
             resultLabel.setText("Result: " + fahrenheit + " °F");
         } else {
-            resultLabel.setText("Invalid Input!");
+            resultLabel.setText("Invalid Input! Please enter a valid number.");
         }
     }
 
+    // Helper method to validate the input as a valid number
     private boolean isValidNumber(String input) {
-        for (char c : input.toCharArray()) {
-            if (!Character.isDigit(c) && c != '.' && c != '-') {
-                return false;
-            }
-        }
-        return true;
+        // Regular expression to check if the input is a valid number
+        return input.matches("-?\\d+(\\.\\d+)?");
     }
 
     public static void main(String[] args) {
-        new Temperature();
+        new Temperature(); // Launch the application
     }
 }
