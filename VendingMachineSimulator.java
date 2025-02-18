@@ -24,25 +24,25 @@ public class VendingMachineSimulator {
                     System.out.print("Insert money: $");
                     double insertedMoney = scanner.nextDouble();
 
-            if (insertedMoney >= itemPrices[selection - 1]) {
-            itemQuantities[selection - 1]--;
-                double change = insertedMoney - itemPrices[selection - 1];
-                    System.out.println("Item dispensed: " + itemNames[selection - 1]);
-                    System.out.println("Your change: $" + change);
-            }
-                else {
-                    System.out.println("Insufficient funds. Please insert more money.");
-                 }
-            }
+                    if (insertedMoney >= itemPrices[selection - 1]) {
+                        itemQuantities[selection - 1]--;
+                        double change = insertedMoney - itemPrices[selection - 1];
+                        System.out.println("Item dispensed: " + itemNames[selection - 1]);
+                        System.out.println("Your change: $" + change);
+                    }
+                    else {
+                        System.out.println("Insufficient funds. Please insert more money.");
+                    }
+                }
                 else {
                     System.out.println("Sorry, that item is out of stock.");
                 }
             }
-                else {
-                    System.out.println("Invalid selection. Please choose a valid item number.");
+            else {
+                System.out.println("Invalid selection. Please choose a valid item number.");
             }
         }
-        
+
     }
 
     public static void displayItems() {
@@ -52,3 +52,4 @@ public class VendingMachineSimulator {
         }
     }
 }
+
