@@ -1,0 +1,72 @@
+ class Vehicle {
+    protected String brand;
+    protected int maxSpeed;
+
+    public Vehicle(String brand, int maxSpeed) {
+        this.brand = brand;
+        this.maxSpeed = maxSpeed;
+    }
+
+    public void displayDetails() {
+        System.out.println("Brand: " + brand + ", Max Speed: " + maxSpeed + " km/h");
+    }
+
+    public void calculateSpeed() {
+        System.out.println("Speed is " + maxSpeed + " km/h");
+    }
+}
+
+class Car extends Vehicle {
+    private int numSeats;
+
+    public Car(String brand, int maxSpeed, int numSeats) {
+        super(brand, maxSpeed);
+        this.numSeats = numSeats;
+    }
+
+    @Override
+    public void displayDetails() {
+        System.out.println("Car - Brand: " + brand + ", Max Speed: " + maxSpeed + " km/h, Seats: " + numSeats);
+    }
+
+    @Override
+    public void calculateSpeed() {
+        System.out.println("Car cruising at " + maxSpeed * 0.8 + " km/h average.");
+    }
+}
+
+class Bike extends Vehicle {
+    private boolean hasCarrier;
+
+    public Bike(String brand, int maxSpeed, boolean hasCarrier) {
+        super(brand, maxSpeed);
+        this.hasCarrier = hasCarrier;
+    }
+
+    @Override
+    public void displayDetails() {
+        System.out.println("Bike - Brand: " + brand + ", Max Speed: " + maxSpeed + " km/h, Carrier: " + hasCarrier);
+    }
+
+    @Override
+    public void calculateSpeed() {
+        System.out.println("Bike average speed is " + maxSpeed * 0.6 + " km/h.");
+    }
+}
+
+public class VehicleTest {
+    public static void main(String[] args) {
+        Vehicle[] vehicles = new Vehicle[3];
+
+        vehicles[0] = new Car("Bugatti", 500, 2);
+        vehicles[1] = new Bike("Yamaha", 100, true);
+        vehicles[2] = new Car("Lamborghini", 300, 2);
+
+        for (Vehicle v : vehicles) {
+            v.displayDetails();
+            v.calculateSpeed();
+            System.out.println();
+        }
+    }
+}
+
